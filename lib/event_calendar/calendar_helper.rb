@@ -179,7 +179,7 @@ module EventCalendar
         # day numbers row
         cal << %(<tr>)
         first_day_of_week.upto(last_day_of_week) do |day|
-          cal << %(<td data-id="#{day.day} #{date}" class="ec-day-header )
+          cal << %(<td data-id="#{day.day}" class="ec-day-header )
           cal << %(ec-today-header ) if options[:show_today] and (day == Date.today)
           cal << %(ec-other-month-header ) if (day < first) || (day > last)
           cal << %(ec-weekend-day-header) if weekend?(day)
