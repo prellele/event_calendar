@@ -53,7 +53,7 @@ module EventCalendar
         :year => (Time.zone || Time).now.year,
         :month => (Time.zone || Time).now.month,
         :abbrev => true,
-        :first_day_of_week => 1,
+        :first_day_of_week => 0,
         :show_today => true,
         :show_header => true,
         :month_name_text => (Time.zone || Time).now.strftime("%B %Y"),
@@ -71,7 +71,7 @@ module EventCalendar
         :event_margin => 1,
         :event_padding_top => 2,
 
-        :use_all_day => true,
+        :use_all_day => false,
         :use_javascript => true,
         :link_to_day_action => false
       }
