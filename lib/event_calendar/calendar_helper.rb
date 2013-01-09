@@ -53,7 +53,7 @@ module EventCalendar
         :year => (Time.zone || Time).now.year,
         :month => (Time.zone || Time).now.month,
         :abbrev => true,
-        :first_day_of_week => 0,
+        :first_day_of_week => 1,
         :show_today => true,
         :show_header => true,
         :month_name_text => (Time.zone || Time).now.strftime("%B %Y"),
@@ -71,7 +71,7 @@ module EventCalendar
         :event_margin => 1,
         :event_padding_top => 2,
 
-        :use_all_day => false,
+        :use_all_day => true,
         :use_javascript => true,
         :link_to_day_action => false
       }
@@ -179,7 +179,7 @@ module EventCalendar
         # day numbers row
         cal << %(<tr>)
         first_day_of_week.upto(last_day_of_week) do |day|
-          cal << %(<td class="ec-day-header )
+          cal << %(<td data-id="#{day.day} #{date}" class="ec-day-header )
           cal << %(ec-today-header ) if options[:show_today] and (day == Date.today)
           cal << %(ec-other-month-header ) if (day < first) || (day > last)
           cal << %(ec-weekend-day-header) if weekend?(day)
