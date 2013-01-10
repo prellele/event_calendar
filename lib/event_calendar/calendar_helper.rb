@@ -168,7 +168,7 @@ module EventCalendar
         first_day_of_week.upto(first_day_of_week+6) do |day|
           today_class = (day == Date.today) ? "ec-today-bg" : ""
           other_month_class = (day < first) || (day > last) ? 'ec-other-month-bg' : ''
-          cal << %(<td data-date="#{day}" class="ec-day-bg #{today_class} #{other_month_class}">&nbsp;</td>)
+          cal << %(<td class="ec-day-bg #{today_class} #{other_month_class}">&nbsp;</td>)
         end
         cal << %(</tr></tbody></table>)
 
@@ -179,7 +179,7 @@ module EventCalendar
         # day numbers row
         cal << %(<tr>)
         first_day_of_week.upto(last_day_of_week) do |day|
-          cal << %(<td class="ec-day-header )
+          cal << %(<td data-date="#{day}" class="ec-day-header )
           cal << %(ec-today-header ) if options[:show_today] and (day == Date.today)
           cal << %(ec-other-month-header ) if (day < first) || (day > last)
           cal << %(ec-weekend-day-header) if weekend?(day)
