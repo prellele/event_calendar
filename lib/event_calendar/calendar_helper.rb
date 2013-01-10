@@ -53,7 +53,7 @@ module EventCalendar
         :year => (Time.zone || Time).now.year,
         :month => (Time.zone || Time).now.month,
         :abbrev => true,
-        :first_day_of_week => 0,
+        :first_day_of_week => 1,
         :show_today => true,
         :show_header => true,
         :month_name_text => (Time.zone || Time).now.strftime("%B %Y"),
@@ -213,7 +213,7 @@ module EventCalendar
 
                 cal << %(<td class="ec-event-cell" colspan="#{(dates[1]-dates[0]).to_i + 1}" )
                 cal << %(style="padding-top: #{options[:event_margin]}px;">)
-                cal << %(<div id="ec-#{class_name}-#{event.id}" class="ec-event )
+                cal << %(<div data-user-id="#{event.user}" data-category-id="#{event.category}" id="ec-#{class_name}-#{event.id}" class="ec-event )
                 if class_name != "event"
                   cal << %(ec-#{class_name} )
                 end
