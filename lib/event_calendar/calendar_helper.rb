@@ -209,11 +209,12 @@ module EventCalendar
               if dates[0] == day.to_date
                 # check if we should display the bg color or not
                 no_bg = no_event_bg?(event, options)
+                
                 class_name = event.class.name.tableize.singularize
 
                 cal << %(<td class="ec-event-cell" colspan="#{(dates[1]-dates[0]).to_i + 1}" )
                 cal << %(style="padding-top: #{options[:event_margin]}px;">)
-                cal << %(<div id="ec-#{class_name}-#{event.id}" class="ec-event )
+                cal << %(<div data-user-id="#{event.user}" data-category-id="#{event.category}" id="ec-#{class_name}-#{event.id}" class="ec-event )
                 if class_name != "event"
                   cal << %(ec-#{class_name} )
                 end
