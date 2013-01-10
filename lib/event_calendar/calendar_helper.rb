@@ -213,7 +213,7 @@ module EventCalendar
 
                 cal << %(<td class="ec-event-cell" colspan="#{(dates[1]-dates[0]).to_i + 1}" )
                 cal << %(style="padding-top: #{options[:event_margin]}px;">)
-                cal << %(<div data-user-id="#{event.user_id}" data-category-id="#{event.category_id}" id="ec-#{class_name}-#{event.id}" class="ec-event )
+                cal << %(<div data-user-id="#{event.user_id}" data-category-id="#{event.category_id}" id="ec-#{class_name}-#{event.id}" class="ec-event category-#{event.category_id} user-#{event.user_id} )
                 if class_name != "event"
                   cal << %(ec-#{class_name} )
                 end
