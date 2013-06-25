@@ -213,7 +213,7 @@ module EventCalendar
 
                 cal << %(<td class="ec-event-cell" colspan="#{(dates[1]-dates[0]).to_i + 1}" )
                 cal << %(style="padding-top: #{options[:event_margin]}px;">)
-                cal << %(<div data-user="#{event.user_id}" data-category="#{event.category_id}" id="ec-#{class_name}-#{event.id}" class="ec-event category-#{event.category_id} user-#{event.user_id} )
+                cal << %(<a href="/events/#{event.id}"><div data-user="#{event.user_id}" data-category="#{event.category_id}" id="ec-#{class_name}-#{event.id}" class="ec-event category-#{event.category_id} user-#{event.user_id} )
                 if class_name != "event"
                   cal << %(ec-#{class_name} )
                 end
@@ -254,7 +254,7 @@ module EventCalendar
                   cal << block.call({:event => event, :day => day.to_date, :options => options})
                 end
 
-                cal << %(</div></td>)
+                cal << %(</div></a></td>)
               end
 
             else
